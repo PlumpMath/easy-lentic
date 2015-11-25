@@ -5,7 +5,7 @@
 ;; Author: Feng Shu  <tumashu AT 163.com>
 ;; Keywords: convenience
 ;; Homepage: https://github.com/tumashu/easy-lentic
-;; Package-Requires: ((lentic "0.10"))
+;; Package-Requires: ((lentic "0.10") (cl-lib "0.5"))
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -120,6 +120,7 @@
 (require 'lisp-mode)
 (require 'org)
 (require 'ox)
+(require 'cl-lib)
 ;; #+END_SRC
 
 ;; ** 定义一个 org-webpage 专用的 lentic el2org 转换器
@@ -247,7 +248,7 @@
 (defun easy-lentic-insert-boundary-string (str)
   (let* ((string (replace-regexp-in-string
                   "#\\+\\+"
-                  (case major-mode
+                  (cl-case major-mode
                     (emacs-lisp-mode ";; #+")
                     (org-mode "#+"))
                   str))
