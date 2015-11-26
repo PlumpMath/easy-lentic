@@ -74,7 +74,7 @@
 
 ;; #+BEGIN_EXAMPLE
 ;; (require 'easy-lentic)   ;; You need install lentic and gfm
-;; (easy-lentic-mode-setup) ;; Enable `owp/lentic-mode' for `emacs-lisp-mode' and `org-mode'
+;; (easy-lentic-mode-setup) ;; Enable `easy-lentic-mode' for `emacs-lisp-mode' and `org-mode'
 ;; #+END_EXAMPLE
 
 ;; ** 使用
