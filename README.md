@@ -52,7 +52,7 @@ easy-lentic 可以使用 ox-gfm (Github Flavored Markdown exporter for Org Mode)
 ## 配置<a id="orgheadline4"></a>
 
     (require 'easy-lentic)   ;; You need install lentic and gfm
-    (easy-lentic-mode-setup) ;; Enable `owp/lentic-mode' for `emacs-lisp-mode' and `org-mode'
+    (easy-lentic-mode-setup) ;; Enable `easy-lentic-mode' for `emacs-lisp-mode' and `org-mode'
 
 ## 使用<a id="orgheadline7"></a>
 
