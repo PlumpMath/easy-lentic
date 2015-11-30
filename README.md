@@ -58,7 +58,7 @@ easy-lentic 可以使用 ox-gfm (Github Flavored Markdown exporter for Org Mode)
 
 ### 编写 org 格式的 Comment<a id="orgheadline5"></a>
 
-编辑 emacs-lisp 文件时，按 'C-c jj'（\`easy-lentic-switch-window'）会弹出一个
+编辑 emacs-lisp 文件时，按 'C-c ..'（\`easy-lentic-switch-window'）会弹出一个
 org-mode 窗口，这个窗口显示的内容和 emacs-lisp 文件内容在逻辑上具有高度的相似性。这样，comment 部份可以在 org buffer 中编辑，而 elisp 代码则可以到 emacs-lisp buffer中编辑，两个 buffer 中的内容实时自动的同步。
 
 ### 自动生成 README 文档<a id="orgheadline6"></a>

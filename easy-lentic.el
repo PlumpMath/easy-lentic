@@ -81,7 +81,7 @@
 
 ;; *** 编写 org 格式的 Comment
 
-;; 编辑 emacs-lisp 文件时，按 'C-c jj'（`easy-lentic-switch-window'）会弹出一个
+;; 编辑 emacs-lisp 文件时，按 'C-c ..'（`easy-lentic-switch-window'）会弹出一个
 ;; org-mode 窗口，这个窗口显示的内容和 emacs-lisp 文件内容在逻辑上具有高度的相似性。
 ;; 这样，comment 部份可以在 org buffer 中编辑，而 elisp 代码则可以到 emacs-lisp buffer中编辑，
 ;; 两个 buffer 中的内容实时自动的同步。
@@ -261,9 +261,9 @@
 
 (defvar easy-lentic-mode-map
   (let ((keymap (make-sparse-keymap)))
-    (define-key keymap "\C-cjj" 'easy-lentic-switch-window)
-    (define-key keymap "\C-cjb" 'easy-lentic-insert-begin-end)
-    (define-key keymap "\C-cje" 'easy-lentic-insert-end-begin)
+    (define-key keymap "\C-c.." 'easy-lentic-switch-window)
+    (define-key keymap "\C-c.b" 'easy-lentic-insert-begin-end)
+    (define-key keymap "\C-c.e" 'easy-lentic-insert-end-begin)
     keymap)
   "Keymap for `easy-lentic-mode'")
 
