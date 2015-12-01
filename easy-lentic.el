@@ -378,6 +378,7 @@ emacs-lisp files by lentic."
   "Generate README.md from current emacs-lisp file."
   (interactive)
   (let* ((file (buffer-file-name))
+         (point (point))
          (filename (when file
                      (file-name-nondirectory file)))
          (directory (when file
@@ -391,7 +392,10 @@ emacs-lisp files by lentic."
            'gfm
          (message "Can't generate README.md with ox-gfm, use ox-md instead!")
          'md)
-       "README.md"))))
+       "README.md")
+      ;; Elisp buffer will be killed when generate README.md, reopen it!
+      (find-file file)
+      (goto-char point))))
 ;; #+END_SRC
 
 ;; * Footer
