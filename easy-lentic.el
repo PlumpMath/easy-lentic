@@ -162,6 +162,7 @@
 (defun easy-lentic-org2el-init ()
   (lentic-org-oset
    (easy-lentic-org2el-configuration
+    "easy-lentic-org2el"
     :lentic-file
     (concat
      (file-name-sans-extension
@@ -196,6 +197,7 @@
 (defun easy-lentic-el2org-init ()
   (lentic-org-oset
    (easy-lentic-el2org-configuration
+    "easy-lentic-el2org"
     ;; we don't really need a file and could cope without, but org mode assumes
     ;; that the buffer is file name bound when it exports. As it happens, this
     ;; also means that file saving is possible which in turn saves the el file
