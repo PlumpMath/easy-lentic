@@ -277,37 +277,6 @@
   (add-hook 'emacs-lisp-mode-hook 'easy-lentic-mode))
 ;; #+END_SRC
 
-
-;; ** 定义一个 org export 过滤器，处理中文文档中的多余空格
-
-;; org 文档导出为 HTML 文档时，中文与中文之间的回车符默认会转化为空格符，
-;; 这些空格对于中文而言是多余的。所以我们定义了一个过滤器，当 org 文档导
-;; 出为 HTML 或者 markdown 文档时，自动清除中文与中文之间不必要的空格。
-
-;; #+BEGIN_SRC emacs-lisp
-(defun easy-lentic-org-clean-space (text backend info)
-  "在export为HTML时，删除中文之间不必要的空格"
-  (when (org-export-derived-backend-p backend 'html)
-    (let ((regexp "[[:multibyte:]]")
-          (string text))
-      ;; org默认将一个换行符转换为空格，但中文不需要这个空格，删除。
-      (setq string
-            (replace-regexp-in-string
-             (format "\\(%s\\) *\n *\\(%s\\)" regexp regexp)
-             "\\1\\2" string))
-      ;; 删除粗体之前的空格
-      (setq string
-            (replace-regexp-in-string
-             (format "\\(%s\\) +\\(<\\)" regexp)
-             "\\1\\2" string))
-      ;; 删除粗体之后的空格
-      (setq string
-            (replace-regexp-in-string
-             (format "\\(>\\) +\\(%s\\)" regexp)
-             "\\1\\2" string))
-      string)))
-;; #+END_SRC
-
 ;; ** 清洗 lentic 转换得到的 org 文件
 
 ;; 在编辑 emacs-lisp 文件时，有许多 *约定俗成* 的东西，而许多相关工具，
@@ -365,8 +334,7 @@ emacs-lisp files by lentic."
                (setq org-file (concat directory input-file-name)))))
       (if (file-exists-p org-file)
           (with-current-buffer (find-file-noselect org-file)
-            (let ((org-export-filter-paragraph-functions '(easy-lentic-org-clean-space))
-                  (org-export-before-processing-hook '(easy-lentic-org-export-preprocess))
+            (let ((org-export-before-processing-hook '(easy-lentic-org-export-preprocess))
                   (org-export-select-tags tags)
                   (org-export-with-tags nil)
                   (indent-tabs-mode nil)
